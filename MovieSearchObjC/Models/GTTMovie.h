@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTTMovie : NSObject
 
 @property (nonatomic, copy, readonly) NSString *title;
-@property (nonatomic, readonly) NSInteger rating;
+@property (nonatomic, readonly) double rating;
 @property (nonatomic, copy, readonly) NSString *overview;
-@property (nonatomic, copy, readonly) NSString *posterPath;
+@property (nonatomic, copy, nullable) NSString *posterPath;
 
 -(instancetype) initWithDictionary: (NSDictionary *)dictionary;
 

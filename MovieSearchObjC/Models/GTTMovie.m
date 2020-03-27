@@ -10,7 +10,7 @@
 
 @implementation GTTMovie
 
--(instancetype) initWithTitle: (NSString *)title rating: (double)rating overview: (NSString *)overview posterPath: (NSString *)posterPath
+-(instancetype) initWithTitle: (NSString *)title rating: (double)rating overview: (NSString *)overview posterPath: (nullable NSString *)posterPath
 {
     self = [super init];
     if (self)
@@ -26,9 +26,9 @@
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     NSString *title = dictionary[@"title"];
-    NSInteger rating = [dictionary[@"title"] doubleValue];
+    double rating = [dictionary[@"vote_average"] doubleValue];
     NSString *overview = dictionary[@"overview"];
-    NSString *posterPath = dictionary[@"poster_path"];
+    NSString * _Nullable posterPath = dictionary[@"poster_path"];
     
     return [self initWithTitle:title rating:rating overview:overview posterPath:posterPath];
 }

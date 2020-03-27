@@ -14,6 +14,8 @@
 		9E29142B242E4E4F0054E9D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E291429242E4E4F0054E9D2 /* LaunchScreen.storyboard */; };
 		9E29143B242E51120054E9D2 /* GTTMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E29143A242E51120054E9D2 /* GTTMovie.m */; };
 		9EB05992242E577400657791 /* GTTMovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB05991242E577400657791 /* GTTMovieController.m */; };
+		9EB05994242E618500657791 /* MovieListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB05993242E618500657791 /* MovieListTableViewController.swift */; };
+		9EB05996242E656100657791 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB05995242E656100657791 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		9E29143A242E51120054E9D2 /* GTTMovie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTMovie.m; sourceTree = "<group>"; };
 		9EB05990242E577400657791 /* GTTMovieController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTTMovieController.h; sourceTree = "<group>"; };
 		9EB05991242E577400657791 /* GTTMovieController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTTMovieController.m; sourceTree = "<group>"; };
+		9EB05993242E618500657791 /* MovieListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListTableViewController.swift; sourceTree = "<group>"; };
+		9EB05995242E656100657791 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 		9E291435242E4E8A0054E9D2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EB05993242E618500657791 /* MovieListTableViewController.swift */,
+				9EB05995242E656100657791 /* MovieTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -199,8 +205,10 @@
 			files = (
 				9E29141F242E4E4E0054E9D2 /* AppDelegate.swift in Sources */,
 				9E291421242E4E4E0054E9D2 /* SceneDelegate.swift in Sources */,
+				9EB05996242E656100657791 /* MovieTableViewCell.swift in Sources */,
 				9EB05992242E577400657791 /* GTTMovieController.m in Sources */,
 				9E29143B242E51120054E9D2 /* GTTMovie.m in Sources */,
+				9EB05994242E618500657791 /* MovieListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

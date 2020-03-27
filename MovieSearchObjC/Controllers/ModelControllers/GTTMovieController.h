@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class GTTMovie;
 @interface GTTMovieController : NSObject
 
--(void)fetchMovie: (NSString *)searchTerm completion: (void(^)(NSArray<GTTMovie *> * _Nullable))completion;
--(void)fetchPosterImage: (GTTMovie *)movie completion: (void(^)(UIImage * _Nullable))completion;
++(void)fetchMovie: (NSString *)searchTerm completion: (void(^)(NSArray<GTTMovie *> * _Nullable))completion;
++(void)fetchPosterImage: (GTTMovie *)movie completion: (void(^)(UIImage * _Nullable))completion;
 
 @end
 

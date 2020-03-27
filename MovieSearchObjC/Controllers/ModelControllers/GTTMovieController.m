@@ -17,10 +17,10 @@ static NSString * const includeAdult = @"false";
 
 @implementation GTTMovieController
 
-- (void)fetchMovie:(NSString *)searchTerm completion:(void (^)(NSArray<GTTMovie *> * _Nullable))completion
++ (void)fetchMovie:(NSString *)searchTerm completion:(void (^)(NSArray<GTTMovie *> * _Nullable))completion
 {
-    NSURL * baseURL = [NSURL URLWithString:baseURL];
-    NSURLComponents *components = [NSURLComponents componentsWithURL:baseURL resolvingAgainstBaseURL:true];
+    NSURL * baseURL = [NSURL URLWithString:baseURLString];
+    NSURLComponents *components = [[NSURLComponents new] initWithURL:baseURL resolvingAgainstBaseURL:true];
     components.queryItems = @[[NSURLQueryItem queryItemWithName:@"api_key" value:apiKey],
                               [NSURLQueryItem queryItemWithName:@"language" value:language],
                               [NSURLQueryItem queryItemWithName:@"query" value:searchTerm.lowercaseString],
@@ -58,31 +58,41 @@ static NSString * const includeAdult = @"false";
     }] resume];
 }
 
-- (void)fetchPosterImage:(GTTMovie *)movie completion:(void (^)(UIImage * _Nullable))completion
++(void)fetchPosterImage:(GTTMovie *)movie completion:(void (^)(UIImage * _Nullable))completion
 {
-    NSString *imageURLString = [NSString stringWithFormat:@"%@ %@", baseImageString, [movie posterPath]];
-    NSURL *imageURL = [NSURL URLWithString:imageURLString];
+    NSURL *baseURL = [NSURL URLWithString:baseImageString];
+    NSLog(@"%@",movie.posterPath);
     
-    [[[NSURLSession sharedSession] dataTaskWithURL:imageURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    if ([movie.posterPath isKindOfClass:[NSNull class]])
+    {
+        NSLog(@"%@", movie.posterPath);
+    }
+    else
+    {
+        NSURL *imageURL = [baseURL URLByAppendingPathComponent:movie.posterPath];
+        NSLog(@"%@", imageURL);
         
-        if (error)
-        {
-            NSLog(@"%@", error);
-            completion(nil);
-            return;
-        }
-        
-        if (!data)
-        {
-            NSLog(@"%@", error);
-            completion(nil);
-            return;
-        }
-        
-        UIImage *image = [UIImage imageWithData:data];
-        completion(image);
-        
-    }] resume];
+        [[[NSURLSession sharedSession] dataTaskWithURL:imageURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            
+            if (error)
+            {
+                NSLog(@"%@", error);
+                completion(nil);
+                return;
+            }
+            
+            if (!data)
+            {
+                NSLog(@"%@", error);
+                completion(nil);
+                return;
+            }
+            
+            UIImage *image = [UIImage imageWithData:data];
+            completion(image);
+            
+        }] resume];
+    }
 }
 
 @end
